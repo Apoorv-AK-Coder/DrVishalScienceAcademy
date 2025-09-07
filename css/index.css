@@ -1,7 +1,7 @@
 @import url(./style.css);
 
 .newheader {
-    background: transparent;
+    background: linear-gradient(135deg, rgb(255, 255, 255, 1) 75%, rgb(255, 255, 255, 0) 10%);
     z-index: 999;
     position: fixed;
     top: 0;
@@ -12,53 +12,91 @@
         width: 90%;
         margin: auto;
         border: 0;
-        padding: 15px 20px;
+        padding: 10px 20px;
         border-radius: 100px;
     }
 
-    .left {
-        margin: auto 20px auto 0;
-        max-width: fit-content;
+    .center {
+        margin: auto 0;
+        text-align: center;
 
         img {
-            width: 275px;
+            width: 250px;
         }
 
         a {
             line-height: 1 !important;
         }
     }
+
+    .icon {
+        margin: auto 0;
+
+        #on {
+            border: 1px solid var(--primary-color);
+            padding: 0 10px;
+            border-radius: 25px;
+            width: fit-content;
+            cursor: pointer;
+        }
+    }
+
+    #off {
+        width: fit-content;
+        border-bottom: 2px solid var(--fourth-color);
+        margin-bottom: 30px;
+        cursor: pointer;
+
+        p {
+            color: var(--fourth-color);
+            font-size: 25px;
+            line-height: 1.5;
+        }
+    }
+}
+
+.newheader.scrolled {
+    background-color: var(--fourth-color);
+    box-shadow: 0 2px 2px rgba(20, 20, 20, 0.1);
 }
 
 .navigate {
+    transition: left 0.4s ease-in-out;
+    z-index: 1000;
+    position: absolute;
+    background: linear-gradient(to right, var(--fifth-color), rgb(20, 20, 20, 0));
+    top: 0;
+    left: -100%;
+    height: 100vh;
+    width: 100%;
+    padding: 40px 60px;
     margin: auto 0;
 
     ul {
-        display: flex;
         list-style-type: none;
-        gap: 10px;
         margin-bottom: 0;
         background-color: transparent;
-        justify-content: right;
-        gap: 15px;
     }
 
     nav ul li a.active {
         color: var(--primary-color) !important;
+        border-color: var(--primary-color) !important;
     }
 
     a {
-        color: var(--fifth-color) !important;
+        font-size: 20px;
+        color: var(--fourth-color) !important;
         transition: border-color 0.5s ease-in-out;
-        padding: 0;
-        border-radius: 5px;
+        padding: 2px 10px;
+        border-bottom: 2px solid transparent;
     }
-
+    
     li {
         background-color: transparent;
         margin: 0;
-        padding: 2px 0;
+        padding: 2px;
         cursor: pointer;
+        margin-bottom: 15px;
     }
 
     li:hover {
@@ -68,29 +106,13 @@
     }
 }
 
+.navigate.active {
+    left: 0;
+}
+
 form {
-    .pass {
-        margin: auto 0 auto auto;
-        gap: 10px;
-    }
-
-    .radio {
-        display: flex;
-        gap: 20px;
-
-        input {
-            width: 15px;
-            margin-left: 0 !important;
-        }
-
-        label {
-            margin-top: 0;
-            margin-left: 20px;
-        }
-    }
-
     ::placeholder {
-        color: var(--fifth-color);
+        color: #595959;
     }
 
     input,
@@ -99,10 +121,11 @@ form {
         line-height: 1em !important;
         background-color: var(--fourth-color);
         width: 100%;
-        padding: 10px;
+        padding: 12px;
         margin: 5px 0;
         border: 1px solid #cacaca;
         border-radius: 5px;
+        font-size: 15px;
     }
 
     label {
@@ -120,66 +143,6 @@ form {
 
     div {
         gap: 5px;
-    }
-
-    .dropdown-container {
-        position: relative;
-        display: inline-block;
-        width: 100%;
-    }
-
-    .dropdown-input {
-        padding: 10px;
-        font-size: 15px;
-        border: 1px solid #ddd;
-        cursor: pointer;
-    }
-
-    .dropdown-content {
-        padding: 10px;
-        border-radius: 10px;
-        position: absolute;
-        background-color: #f9f9f9;
-        min-width: 200px;
-        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-        z-index: 1;
-        border: 1px solid #ddd;
-    }
-
-    .dropdown-content .dropdown-group {
-        padding: 10px;
-        border-bottom: 1px solid #ddd;
-    }
-
-    .dropdown-content .dropdown-group:last-child {
-        border-bottom: none;
-    }
-
-    .dropdown-content label {
-        margin-right: 10px;
-    }
-
-    .qty {
-        cursor: pointer;
-        width: 30px;
-        text-align: center;
-    }
-
-    .qtyminus,
-    .qtyplus {
-        background-color: #f1f1f1;
-        border: 1px solid #ccc;
-        font-size: 18px;
-    }
-
-    .dropdown-content input[type="text"] {
-        width: 50px;
-        text-align: center;
-    }
-
-    .form-control {
-        border: 1px solid #cacaca;
-        padding: 10px 12px !important;
     }
 }
 
@@ -296,17 +259,171 @@ form {
 }
 
 .banner {
-    background-image: url(../images/banner.jpg);
-    background-position: center;
+    background-image: linear-gradient(45deg, rgb(20, 20, 20, 0.5), rgb(20, 20, 20, 0)), url(../images/home_banner.jpg);
+    background-position-x: bottom;
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
 
     h1 {
         font-family: var(--third-font) !important;
         text-shadow: none;
+        color: var(--fourth-color) !important;
     }
 
     .row {
-        padding-block: 150px 75px;
+        padding-top: 150px;
+    }
+
+    p {
+        color: var(--fourth-color);
+        line-height: 1.4;
+    }
+    
+    b {
+        font-size: 21px;
+    }
+}
+
+.aboutus {
+    .flex {
+        gap: 10px;
+        margin-bottom: 10px;
+    }
+
+    hr {
+        margin: auto 0;
+        flex: 1;
+        border: 1px solid var(--third-color);
+    }
+
+    i {
+        color: var(--secondary-color);
+    }
+
+    img {
+        width: 100%;
+    }
+
+    .row {
+        padding-block: 0;
+    }
+
+    button {
+        margin-top: 10px;
+
+        i {
+            color: #fff;
+        }
+    }
+}
+
+.usps {
+    .flex {
+        gap: 10px;
+    }
+
+    hr {
+        margin: auto 0;
+        flex: 1;
+        border: 1px solid var(--third-color);
+    }
+
+    .uspcol {
+        box-shadow: 0 0 4px 4px rgba(20, 20, 20, 0.1);
+        border-radius: 5px;
+        padding: 50px 30px;
+        background-color: var(--fourth-color);
+        transition: transform 0.6s, background-color 0.6s;
+        transform-style: preserve-3d;
+        cursor: pointer;
+        text-align: center;
+    }
+
+    .uspcol:hover {
+        transform: rotateY(360deg);
+        background-color: var(--secondary-color);
+
+        h3,
+        h4,
+        p {
+            color: var(--fourth-color) !important;
+        }
+    }
+
+    p {
+        line-height: 1.7;
+        font-size: 15px;
+    }
+
+    h4 {
+        margin-block: 10px;
+    }
+
+    img {
+        width: 100px;
+    }
+}
+
+.faqsec {
+    h3:first-child {
+        flex: 1;
+    }
+
+    .fa-caret-up, .faqdetails {
+        display: none;
+    }
+
+    .show {
+        display: block;
+    }
+
+    .faqs {
+        border-bottom: 2px solid #cacaca;
+        padding-bottom: 10px;
+        cursor: pointer;
+    }
+
+    .faqdetails {
+        margin-top: 10px;
+    }
+
+    div {
+        margin-bottom: auto;
+    }
+}
+
+.ctasection {
+    background-image: url(../images/cta.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    h2 {
+        color: var(--fourth-color) !important;
+        padding-bottom: 5px;
+        border-bottom: 2px solid var(--primary-color);
+    }
+
+    .grid {
+        gap: 10px;
+    }
+
+    input, select {
+        margin: 0;
+    }
+
+    textarea {
+        margin-bottom: 0;
+        margin-top: 10px;
+    }
+
+    button {
+        margin-top: 10px;
+        width: fit-content;
+    }
+
+    label {
+        color: var(--fourth-color);
     }
 }
