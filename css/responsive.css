@@ -42,7 +42,7 @@
             }
         }
     }
-    
+
     .grid1,
     .grid2,
     .grid3 {
@@ -75,8 +75,21 @@
             grid-template-columns: repeat(2, 1fr);
         }
 
-        .column:nth-child(1), .column:nth-child(2) {
+        .column:nth-child(1),
+        .column:nth-child(2) {
             grid-column: span 2;
+        }
+    }
+
+    .policy {
+        hr {
+            margin-block: 10px;
+        }
+
+        .grid {
+            hr {
+                display: block;
+            }
         }
     }
 }

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservation Desk</title>
+
+    <link href="./fontawesome/css/all.css" rel="stylesheet">
+    <link href="./fontawesome/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lato');
+
+        @font-face {
+            font-family: 'Helvetica Neue';
+            src: url('/helvetica-neue-5/HelveticaNeueMedium.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #FF6B35;
+            --secondary-color: #0770E3;
+            --third-color: #0B2545;
+            --fourth-color: #ffffff;
+            --fifth-color: #161616;
+            --sixth-color: #FFB600;
+            /*fonts*/
+            --primary-font: 'Helvetica Neue';
+            --secondary-font: "Lato";
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: var(--primary-font);
+            line-height: 1.35;
+            margin: 0;
+            padding: 0;
+            color: var(--fifth-color);
+        }
+
+        h1 {
+            font-size: 20px;
+            color: var(--secondary-color);
+            font-weight: 400;
+        }
+
+        h2 {
+            font-size: 20px;
+            font-weight: 500;
+        }
+
+        h3 {
+            font-size: 25px;
+            font-weight: 700;
+        }
+
+        h4 {
+            font-size: 20px;
+            font-weight: 400;
+        }
+
+        a {
+            color: var(--fifth-color);
+            text-decoration: none;
+        }
+
+        p,
+        li,
+        a {
+            font-family: var(--secondary-font);
+            line-height: 2;
+            font-size: 16px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .firstrow {
+            text-align: center;
+
+            .flex {
+                p {
+                    flex: 1;
+                    font-weight: 700;
+
+                    a {
+                        font-size: 19px;
+                    }
+                }
+
+                p:first-child {
+                    background-color: var(--secondary-color);
+                }
+            }
+
+            img {
+                width: 100%;
+            }
+
+            .grid {
+                padding: 25px 20px;
+
+                .column {
+                    background-color: rgb(178, 216, 178, 0.4);
+                    padding: 5px 10px;
+                    border-radius: 25px;
+                    display: flex;
+                    gap: 7px;
+                }
+            }
+        }
+
+        .fixedrow {
+            position: fixed;
+            bottom: 10px;
+            right: 0;
+            left: 0;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        button {
+            background-color: var(--secondary-color);
+            margin: 0 auto;
+            width: fit-content;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            color: #fff;
+            font-weight: 700;
+        }
+
+        .footer {
+            p {
+                background-color: var(--secondary-color);
+            }
+
+            a {
+                font-weight: 700;
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="firstrow">
+            <div class="flex">
+                <p><a href="tel:+18002691139" style="color: #fff;">+1-800-269-1139</a></p>
+                <p><a href="tel:+18002691139"><i class="fa-solid fa-headset"></i> 24/7 Support</a></p>
+            </div>
+            <img src="/images/Reservation-Desk-Banner.jpg" alt="Reservation Desk Banner">
+            <h1>Reservation Desk</h1>
+            <h2>Affordable Flights for You</h2>
+            <h2>Get Best Deals Now!</h2>
+            <div class="grid" style="text-align: left;">
+                <div class="column">
+                    <img src="./images/check.svg" alt="" style="width: 20px !important;">
+                    <p>Reservation</p>
+                </div>
+                <div class="column">
+                    <img src="./images/check.svg" alt="" style="width: 20px !important;">
+                    <p>Flight Changes</p>
+                </div>
+                <div class="column">
+                    <img src="./images/check.svg" alt="" style="width: 20px !important;">
+                    <p>Cancellation</p>
+                </div>
+                <div class="column">
+                    <img src="./images/check.svg" alt="" style="width: 20px !important;">
+                    <p>Reschedule</p>
+                </div>
+                <div class="column">
+                    <img src="./images/check.svg" alt="" style="width: 20px !important;">
+                    <p>Customer Services</p>
+                </div>
+                <div class="column">
+                    <img src="./images/check.svg" alt="" style="width: 20px !important;">
+                    <p>Latest Offers</p>
+                </div>
+            </div>
+            <div class="footer">
+                <p><a href="tel:+18002691139" style="color: #fff;"><i class="fa-solid fa-phone"></i> +1-800-269-1139</a></p>
+            </div>
+        </div>
+    </div>
+
+    <div style="text-align: center;" class="fixedrow">
+        <a href="tel:+18002691139" style="color: #fff;"><button><i class="fa-solid fa-phone"></i> Call us Now</button></a>
+    </div>
+
+</body>
+
+</html>
